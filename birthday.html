@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Dhurva! 🎂</title>
+    <link rel="stylesheet" href="birthday.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="gradient-sphere"></div>
+        <div class="gradient-sphere-2"></div>
+    </div>
+
+    <!-- Floating Shapes -->
+    <div class="shapes">
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="shape shape3"></div>
+        <div class="shape shape4"></div>
+        <div class="shape shape5"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Main Birthday Card -->
+        <div class="birthday-card">
+            
+            <!-- Top Decoration -->
+            <div class="top-decoration">
+                <div class="confetti-top"></div>
+                <div class="balloons">
+                    <i class="fas fa-balloon balloon balloon1"></i>
+                    <i class="fas fa-balloon balloon balloon2"></i>
+                    <i class="fas fa-balloon balloon balloon3"></i>
+                </div>
+            </div>
+
+            <!-- Birthday Badge -->
+            <div class="birthday-badge">
+                <span class="badge-text">🎂</span>
+                <div class="badge-glow"></div>
+            </div>
+
+            <!-- Main Title -->
+            <h1 class="main-title">
+                <span class="title-line">Happy</span>
+                <span class="title-line gradient-text">Birthday</span>
+            </h1>
+
+            <!-- Friend's Name - DHURVA -->
+            <div class="name-container">
+                <h2 class="friend-name">DHURVA</h2>
+                <div class="name-underline"></div>
+            </div>
+
+            <!-- Decorative Divider -->
+            <div class="divider">
+                <i class="fas fa-star star-icon"></i>
+                <i class="fas fa-heart heart-icon"></i>
+                <i class="fas fa-star star-icon"></i>
+            </div>
+
+            <!-- Message Section - Clean English Text -->
+            <div class="message-section">
+                <div class="message-card">
+                    <p class="message-text">
+                        <span class="message-greeting">Dear Dhurva,</span>
+                        
+                        <span class="message-line">We met just 2 months ago,</span>
+                        <span class="message-line">but it feels like I've known you forever.</span>
+                        
+                        <span class="message-line">Your smile brightens my world,</span>
+                        <span class="message-line">your laughter is my favorite sound.</span>
+                        
+                        <span class="message-line">May your life be filled with joy,</span>
+                        <span class="message-line">may all your dreams come true.</span>
+                        
+                        <span class="message-line">You deserve all the happiness,</span>
+                        <span class="message-line">today and always.</span>
+                        
+                        <span class="message-ending">Happy Birthday Dhurva! 🎂❤️</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Signature Section - BADAL -->
+            <div class="signature-section">
+                <div class="signature-box">
+                    <p class="signature-label">With love,</p>
+                    <p class="signature-name">BADAL</p>
+                </div>
+                <div class="date-stamp">
+                    <i class="far fa-calendar-alt"></i>
+                    <span><span id="currentDate"></span></span>
+                </div>
+            </div>
+
+            <!-- Surprise Button -->
+            <div class="button-container">
+                <button class="surprise-button" onclick="showSurprise()">
+                    <span class="button-text">Surprise!</span>
+                    <span class="button-icon">🎁</span>
+                    <div class="button-glow"></div>
+                </button>
+            </div>
+
+            <!-- Music Notes -->
+            <div class="music-notes">
+                <i class="fas fa-music note note1"></i>
+                <i class="fas fa-music note note2"></i>
+                <i class="fas fa-music note note3"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Surprise Modal -->
+    <div id="surpriseModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div class="modal-body">
+                <h2 class="modal-title">SURPRISE! 🎉</h2>
+                <div class="modal-cake">🎂🎈🎊</div>
+                <p class="modal-message">
+                   You deserve all the happiness, success, and love in the world.<br>
+Today is yours — enjoy every second of it! 💫
+                </p>
+                <div class="modal-confetti" id="confettiContainer"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Current Date
+        document.getElementById('currentDate').textContent = new Date().toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+
+        function showSurprise() {
+            const modal = document.getElementById('surpriseModal');
+            modal.style.display = 'flex';
+            createConfetti();
+            
+            // Auto close after 5 seconds
+            setTimeout(() => {
+                closeModal();
+            }, 5000);
+        }
+        
+        function closeModal() {
+            document.getElementById('surpriseModal').style.display = 'none';
+            document.getElementById('confettiContainer').innerHTML = '';
+        }
+        
+        function createConfetti() {
+            const container = document.getElementById('confettiContainer');
+            for(let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti-piece';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.animationDelay = Math.random() * 3 + 's';
+                confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                container.appendChild(confetti);
+            }
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('surpriseModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
